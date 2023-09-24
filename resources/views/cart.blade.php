@@ -116,7 +116,8 @@
                             <hr>
                             {{ presentPrice($newSubtotal) }} <br>
                         @endif
-                        {{ presentPrice($newTax) }} <br>
+                        {{ presentPrice($newTax) }}
+                         <br>
                         <span class="cart-totals-total">{{ presentPrice($newTotal) }}</span>
                     </div>
                 </div>

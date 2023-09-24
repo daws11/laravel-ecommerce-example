@@ -4,7 +4,12 @@ use Carbon\Carbon;
 
 function presentPrice($price)
 {
-    return money_format('$%i', $price / 100);
+    // Validasi apakah $price adalah numerik sebelum memformat
+    if (is_numeric((int)$price)) {
+        return 'Rp' . number_format((int)$price / 100, 3);
+    } else {
+        return 'Invalid Price';
+    }
 }
 
 function presentDate($date)
@@ -24,25 +29,31 @@ function productImage($path)
 
 function getNumbers()
 {
-    $tax = config('cart.tax') / 100;
-    $discount = session()->get('coupon')['discount'] ?? 0;
-    $code = session()->get('coupon')['name'] ?? null;
-    $newSubtotal = (Cart::subtotal() - $discount);
-    if ($newSubtotal < 0) {
-        $newSubtotal = 0;
-    }
-    $newTax = $newSubtotal * $tax;
-    $newTotal = $newSubtotal * (1 + $tax);
+    // $tax = config('cart.tax') / 100;
+    // $discount = 0;
+    
+    // $coupon = session()->get('coupon');
+    
+    // if ($coupon && isset($coupon['discount'])) {
+    //     $discount = is_numeric($coupon['discount']) ? $coupon['discount'] : 0;
+    // }
+    
+    $subtotal = is_numeric(Cart::subtotal()) ? Cart::subtotal() : 0;
+    $newSubtotal = max($subtotal, 0);
+    
+    $newTax = $newSubtotal ;
+    $newTotal = $newSubtotal;
 
     return collect([
-        'tax' => $tax,
-        'discount' => $discount,
-        'code' => $code,
+        // 'tax' => $tax,
+        // 'discount' => $discount,
         'newSubtotal' => $newSubtotal,
         'newTax' => $newTax,
         'newTotal' => $newTotal,
     ]);
 }
+
+
 
 function getStockLevel($quantity)
 {

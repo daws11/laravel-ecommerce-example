@@ -8,9 +8,10 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel Ecommerce | @yield('title', '')</title>
+        <title>Hive Project | @yield('title', '')</title>
 
-        <link href="/img/favicon.ico" rel="SHORTCUT ICON" />
+        <link rel="icon" href="img/logo.png" type="image/png">
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:300,400,700" rel="stylesheet">

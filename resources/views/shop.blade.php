@@ -8,11 +8,11 @@
 
 @section('content')
 
-    @component('components.breadcrumbs')
+    <!-- @component('components.breadcrumbs')
         <a href="/">Home</a>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
         <span>Shop</span>
-    @endcomponent
+    @endcomponent -->
 
     <div class="container">
         @if (session()->has('success_message'))
@@ -40,7 +40,8 @@
                     <li class="{{ setActiveCategory($category->slug) }}"><a href="{{ route('shop.index', ['category' => $category->slug]) }}">{{ $category->name }}</a></li>
                 @endforeach
             </ul>
-        </div> <!-- end sidebar -->
+        </div> 
+        <!-- end sidebar -->
         <div>
             <div class="products-header">
                 <h1 class="stylish-heading">{{ $categoryName }}</h1>

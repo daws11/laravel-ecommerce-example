@@ -8,10 +8,11 @@ header.with-background {
       justify-content: space-between;
       padding: 40px 0;
       letter-spacing: 1.5px;
+      
 
       .logo {
-        font-weight: bold;
-        font-size: 28px;
+        width: 50px;
+        height: 50px;
       }
 
       ul {
@@ -31,15 +32,13 @@ header.with-background {
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr; //repeat(2, 1fr)
-      grid-gap: $gutter;
-      padding-top: 20px;
-      padding-bottom: 84px;
-
-      .hero-image {
-        padding-left: 60px;
-      }
+      display: flex;
+  flex-direction: column; /* Menyusun elemen secara vertikal */
+  justify-content: center; /* Mengatur elemen-elemen secara horizontal di tengah */
+  align-items: center; /* Mengatur elemen-elemen secara vertikal di tengah */
+  text-align: center; /* Mengatur teks ke tengah */
+  padding-top: 20px;
+  padding-bottom: 84px;
 
       h1 {
         font-size: 52px;
@@ -52,6 +51,24 @@ header.with-background {
 
       .button {
         margin-right: 14px;
+      }
+    }
+
+    .promo-section {
+      height: 70%;
+      width: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      .promo-container {
+        text-align: center; // Menengahkan elemen-elemen di dalam promo-container secara horizontal
+      }
+      
+      img {
+        max-width: 70%; // Membuat gambar berukuran maksimum sesuai dengan parent container
+        height: auto; // Menjaga perbandingan aspek gambar
+        margin-bottom: 20px;
       }
     }
   }
@@ -70,6 +87,8 @@ header.with-background {
         font-size: 28px;
         color: $white;
         margin-right: 58px;
+        width: 50px;
+        height: 50px;
       }
 
       ul {
